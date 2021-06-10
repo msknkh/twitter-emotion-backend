@@ -13,7 +13,6 @@ bert-extractive-summarizer==0.7.1
 bleach==3.3.0
 blinker==1.4
 blis==0.7.4
-Brlapi==0.7.0
 bz2file==0.98
 cachetools==4.2.1
 catalogue==2.0.4
