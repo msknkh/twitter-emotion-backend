@@ -4,14 +4,23 @@ from keras import models
 from keras.preprocessing.sequence import pad_sequences
 import pandas as pd
 from .twitter import get_tweet_dataframe 
-
+import os
 
 def load_model():
-# loading
-    with open('../tokenizer.pickle', 'rb') as handle:
+    
+    # absolute path to this file
+    FILE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # absolute path to this file's root directory
+    PARENT_DIR = os.path.join(FILE_DIR, os.pardir) 
+    path_tokenizer = os.path.join(FILE_DIR, 'tokenizer.pickle')
+    path_model = os.path.join(FILE_DIR, 'model')
+
+
+    # loading
+    with open(path_tokenizer, 'rb') as handle:
         tokenizer = pickle.load(handle)
 
-    model = models.load_model("../model")
+    model = models.load_model(path_model)
 
     return tokenizer, model
 
