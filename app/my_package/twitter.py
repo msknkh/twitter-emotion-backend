@@ -8,7 +8,7 @@ import pandas as pd
 
 # To set your environment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='<your_bearer_token>'
-bearer_token = "AAAAAAAAAAAAAAAAAAAAALwx8gAAAAAAK46td8yYJdUtHF7za82flAw2t%2FE%3DoJAfjqExNyuFuLjQD2U5pUI6FnOP8e0sH69aOQkSRTERVOLERx"
+bearer_token = str(os.getenv("BEARER_TOKEN")) 
 
 def clean_text(text):
     '''Clean emoji, Make text lowercase, remove text in square brackets,remove links,remove punctuation
@@ -64,7 +64,6 @@ def get_tweets(keyword, no_of_tweets):
     query_params['query'] = "({k} -is:retweet lang:en) OR (#{k} lang:en -is:retweet)".format(k=keyword)
 
     json_response = connect_to_endpoint(search_url, headers, query_params)
-    print(json.dumps(json_response, indent=4, sort_keys=True))
 
     text = []
     tweet_id = []
