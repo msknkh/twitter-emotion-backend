@@ -40,4 +40,5 @@ def predict_on_twitter_data(keyword, no_of_tweets=100):
 
     df['prediction'] = prediction
 
-    return df
+    json = df.to_json()
+    return json
