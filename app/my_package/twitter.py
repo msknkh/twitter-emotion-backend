@@ -110,7 +110,7 @@ def get_tweets(keyword, no_of_tweets):
 
     return text, tweet_id, retweet_count, followers_count, like_count
 
-def get_tweet_dataframe(keyword, no_of_tweets):
+def get_tweet_json(keyword, no_of_tweets):
 
     text, tweet_id, retweet_count, followers_count, like_count = get_tweets(keyword, no_of_tweets)
     combined_popularity_count = []
@@ -120,5 +120,5 @@ def get_tweet_dataframe(keyword, no_of_tweets):
     df = pd.DataFrame(list(zip(tweet_id, text, combined_popularity_count)),
                       columns=['tweet_id', 'text', 'combined_popularity_count'])
     df = df.sort_values('combined_popularity_count', ascending=False)
-
-    return df
+    json = df.to_json()
+    return json

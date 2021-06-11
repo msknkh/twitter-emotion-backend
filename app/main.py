@@ -12,6 +12,5 @@ def hello():
 def get_tweets():
     keyword = request.args.get('keyword')
     count_of_tweets = int(request.args.get('count_of_tweets'))
-    df = predict_on_twitter_data(keyword, count_of_tweets)
-    json = df.to_json()
+    json = predict_on_twitter_data(keyword, count_of_tweets)
     return json
