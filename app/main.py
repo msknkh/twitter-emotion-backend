@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request
 from .my_package.model import predict_on_twitter_data 
 import requests
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app, support_credentials=True)
 
 @app.route('/')
 def hello():
