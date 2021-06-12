@@ -33,7 +33,7 @@ def predict_on_twitter_data(keyword, no_of_tweets=100):
     # absolute path to this file's root directory
     PARENT_DIR = os.path.join(FILE_DIR, os.pardir) 
     path_tokenizer = os.path.join(FILE_DIR, 'tokenizer.pickle')
-    path_model = os.path.join(FILE_DIR, 'model')
+    path_model = os.path.join(FILE_DIR, 'mymodel.h5')
 
     # loading
     with open(path_tokenizer, 'rb') as handle:
